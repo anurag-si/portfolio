@@ -53,7 +53,7 @@ export default function Home() {
             </div>
             
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight">
-              Hi, I'm Anurag
+              Hi, I&apos;m Anurag
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 mb-16 font-normal leading-relaxed max-w-2xl mx-auto">
               I like building interactive web experiences with modern technologies. I also enjoy creating clean, performant user interfaces.
@@ -252,7 +252,7 @@ export default function Home() {
               </li>
               <li className="flex items-start gap-3">
                 <CheckCircleIcon className="h-5 w-5 text-orange-500 mt-1 flex-shrink-0" />
-                <span>Designed and implemented RESTful APIs for CRUD operations for adding and updating user's notes</span>
+                <span>Designed and implemented RESTful APIs for CRUD operations for adding and updating user&apos;s notes</span>
               </li>
             </ul>
           </div>
