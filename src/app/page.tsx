@@ -56,7 +56,7 @@ export default function Home() {
               Hi, I&apos;m Anurag
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 mb-16 font-normal leading-relaxed max-w-2xl mx-auto">
-              I like building interactive web experiences with modern technologies. I also enjoy creating clean, performant user interfaces.
+            Software Engineer
             </p>
             
             <div className="flex flex-wrap justify-center gap-4">
