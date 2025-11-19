@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
-import { XMarkIcon, ChevronLeftIcon, ChevronRightIcon, ArrowLeftIcon } from '@heroicons/react/24/outline';
+
+import { XMarkIcon, ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 import { TravelLocation, VideoSrc } from '@/types/travel';
 import { travelLocations } from '@/data/travelLocations';
 
@@ -26,7 +26,7 @@ export default function PhotographyGallery() {
   const goToPrevious = (e?: React.MouseEvent) => {
     e?.stopPropagation();
     if (selectedLocation) {
-      setCurrentImageIndex((prev) => 
+      setCurrentImageIndex((prev) =>
         prev === 0 ? selectedLocation.images.length - 1 : prev - 1
       );
     }
@@ -35,7 +35,7 @@ export default function PhotographyGallery() {
   const goToNext = (e?: React.MouseEvent) => {
     e?.stopPropagation();
     if (selectedLocation) {
-      setCurrentImageIndex((prev) => 
+      setCurrentImageIndex((prev) =>
         prev === selectedLocation.images.length - 1 ? 0 : prev + 1
       );
     }
@@ -53,11 +53,11 @@ export default function PhotographyGallery() {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (!selectedLocation) return;
       if (e.key === 'ArrowLeft') {
-        setCurrentImageIndex((prev) => 
+        setCurrentImageIndex((prev) =>
           prev === 0 ? selectedLocation.images.length - 1 : prev - 1
         );
       } else if (e.key === 'ArrowRight') {
-        setCurrentImageIndex((prev) => 
+        setCurrentImageIndex((prev) =>
           prev === selectedLocation.images.length - 1 ? 0 : prev + 1
         );
       } else if (e.key === 'Escape') {
@@ -74,19 +74,7 @@ export default function PhotographyGallery() {
   return (
     <>
       {/* Back to Home Button */}
-      <div className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200/50">
-        <div className="max-w-6xl mx-auto px-6 lg:px-8">
-          <div className="flex items-center h-16">
-            <Link 
-              href="/" 
-              className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium"
-            >
-              <ArrowLeftIcon className="h-5 w-5" />
-              Back to Home
-            </Link>
-          </div>
-        </div>
-      </div>
+
 
       {/* Photography Section */}
       <section id="travel" className="py-20 px-6 lg:px-8 bg-gray-50">
@@ -94,7 +82,7 @@ export default function PhotographyGallery() {
           <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-16">
             <span className="text-indigo-600">Photography</span>
           </h2>
-          
+
           {travelLocations.length > 0 ? (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {travelLocations.map((location) => {
@@ -139,11 +127,11 @@ export default function PhotographyGallery() {
 
       {/* Location Gallery Modal */}
       {selectedLocation && (
-        <div 
+        <div
           className="fixed inset-0 z-50 bg-black/90 backdrop-blur-sm flex items-center justify-center p-4"
           onClick={closeLocationGallery}
         >
-          <div 
+          <div
             className="relative max-w-5xl w-full"
             onClick={(e) => e.stopPropagation()}
           >
@@ -185,7 +173,7 @@ export default function PhotographyGallery() {
                     playsInline
                   />
                 )}
-                
+
                 {/* Date/Description overlay - shows on hover */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
                   <div className="absolute bottom-0 left-0 right-0 p-6 text-white text-center">
@@ -237,11 +225,10 @@ export default function PhotographyGallery() {
                     <button
                       key={index}
                       onClick={(e) => goToImage(index, e)}
-                      className={`h-2 rounded-full transition-all ${
-                        index === currentImageIndex
-                          ? 'w-8 bg-white'
-                          : 'w-2 bg-white/40 hover:bg-white/60'
-                      }`}
+                      className={`h-2 rounded-full transition-all ${index === currentImageIndex
+                        ? 'w-8 bg-white'
+                        : 'w-2 bg-white/40 hover:bg-white/60'
+                        }`}
                       aria-label={`Go to image ${index + 1}`}
                     />
                   ))}

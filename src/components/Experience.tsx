@@ -34,30 +34,50 @@ const experiences: ExperienceItem[] = [
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-20 px-6 lg:px-8 bg-gray-50">
+    <section id="experience" className="py-12 px-6 lg:px-8 bg-gray-50">
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-16">
+        <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-10">
           <span className="text-blue-600">Work Experience</span>
         </h2>
-        
-        <div className="space-y-12">
+
+        <div className="space-y-8">
           {experiences.map((exp, index) => (
-            <div key={index} className="bg-white rounded-2xl p-8 shadow-sm border border-gray-200">
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
-                <div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">{exp.title}</h3>
-                  <p className="text-lg text-gray-700 font-medium mb-3">{exp.company}</p>
-                  <p className="text-gray-600 flex items-center gap-2">
-                    <MapPinIcon className="h-4 w-4" />
-                    {exp.location}
-                  </p>
+            <div key={index} className="relative">
+              {/* Year Badge */}
+              <div className="flex items-center gap-4 mb-4">
+                <div className="bg-blue-500 text-white px-4 py-1.5 rounded-full text-sm font-bold shadow-md">
+                  {exp.period.split('–')[0].trim()}
                 </div>
-                <div className="text-gray-600 flex items-center gap-2 mt-4 md:mt-0">
-                  <CalendarIcon className="h-4 w-4" />
-                  {exp.period}
-                </div>
+                <div className="h-px flex-1 bg-gradient-to-r from-blue-300 to-transparent"></div>
               </div>
-              <p className="text-gray-700 leading-relaxed">{exp.description}</p>
+
+              {/* Experience Card */}
+              <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-200 hover:shadow-md hover:border-blue-300 transition-all">
+                <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4 gap-3">
+                  <div className="flex-1">
+                    <h3 className="text-xl font-bold text-gray-900 mb-1">{exp.title}</h3>
+                    <p className="text-base text-blue-600 font-semibold mb-2">{exp.company}</p>
+                    <div className="flex flex-wrap gap-4 text-sm text-gray-600">
+                      <span className="flex items-center gap-1.5">
+                        <MapPinIcon className="h-4 w-4" />
+                        {exp.location}
+                      </span>
+                      <span className="flex items-center gap-1.5">
+                        <CalendarIcon className="h-4 w-4" />
+                        {exp.period}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <p className="text-gray-700 leading-relaxed text-sm">{exp.description}</p>
+              </div>
+
+              {/* Connector (except for last item) */}
+              {index < experiences.length - 1 && (
+                <div className="flex justify-center my-6">
+                  <div className="h-8 w-px bg-blue-300"></div>
+                </div>
+              )}
             </div>
           ))}
         </div>
@@ -65,4 +85,3 @@ export default function Experience() {
     </section>
   );
 }
-
