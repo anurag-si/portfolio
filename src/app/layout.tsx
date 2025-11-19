@@ -14,8 +14,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Anurag Singh - Portfolio",
-  description: "Frontend Developer & Engineer specializing in React, TypeScript, and modern web technologies",
+  title: "Anurag Singh | Senior Software Engineer",
+  description: "Senior Software Engineer specializing in React, TypeScript, and modern web technologies. Building web applications that people actually use.",
+  icons: {
+    icon: '/favicon.png',
+  },
 };
 
 export default function RootLayout({
